@@ -1,0 +1,62 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+
+<script>
+
+const form = document.getElementById('person-form');
+
+
+function initForm() {
+  const inputFirstName = document.createElement('input');
+  inputFirstName.className = 'first-name';
+
+  const inputLastName = document.createElement('input');
+  inputLastName.className = 'last-name';
+  
+  const inputAge = document.createElement('input');
+  inputAge.className = 'age';
+
+  const labelFirstName = document.createElement('label');
+  form.append(labelFirstName);
+  labelFirstName.textContent = 'firstName';
+  labelFirstName.append(inputFirstName);
+  
+  
+  const labelLastName = document.createElement('label');
+  form.append(labelLastName);
+  labelLastName.textContent = 'lastName';
+  labelLastName.append(inputLastName);
+  
+  const labelAge = document.createElement('label');
+  form.append(labelAge);
+  labelAge.textContent = 'age';
+  labelAge.append(inputAge);
+}
+
+window.addEventListener('load', initForm);
+
+
+function submitPersonForm(prevent) {
+  const valueFirstName = document.querySelector('.first-name').value;
+  const valueLastName = document.querySelector('.last-name').value;
+  const valueAge = document.querySelector('.age').value;
+  
+  const person = {
+    firstName: valueFirstName,
+    lastName: valueLastName,
+    age: valueAge
+  }
+  console.log(person);
+  prevent.preventDefault();
+}
+const button = document.querySelector('button').addEventListener('click', submitPersonForm);
+</script>
