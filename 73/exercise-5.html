@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's List</h2>
+      <table id="person-table">
+        <tbody></tbody>
+      </table>
+      <button id="add-row">Add row</button>
+      <button id="remove-row">Remove Row</button>
+    </div>
+  </body>
+</html>
+
+<script>
+const table = document.querySelector('table');
+const thead = document.createElement('thead');
+table.prepend(thead);
+
+const th = document.querySelector('thead').innerHTML = '<th>First Name</th><th>Last Name</th><th>Age</th>';
+
+function addRow () {
+  const tbody = document.querySelector('tbody');
+  const tr = document.createElement('tr');
+  tbody.append(tr);
+  tr.innerHTML =
+  `<td><input type="text"></td>
+  <td><input type="text"></td>
+  <td><input type="text"></td>`;
+}
+const buttonAdd = document.getElementById('add-row').addEventListener('click', addRow);
+
+function removeRow() {
+  const tr2 = document.querySelector('tbody tr');
+  const tbody2 = document.querySelector('tbody');
+  // document.removeChild('tbody tr')
+  tr2.remove(tbody2);
+}
+const buttonRemove = document.getElementById('remove-row').addEventListener('click', removeRow);
+
+
+</script>
